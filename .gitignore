@@ -21,3 +21,4 @@
 go.work
 
 .env.secrets
+bin/home_server_mono
