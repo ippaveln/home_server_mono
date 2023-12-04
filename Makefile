@@ -6,6 +6,5 @@ build: ./bin/home_server_mono
 run: build
 	./bin/home_server_mono
 
-
 clean:
 	rm -rf bin/*

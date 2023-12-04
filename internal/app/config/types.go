@@ -9,8 +9,9 @@ type Config struct {
 }
 
 type botConfig struct {
-	Token string
-	Debug bool
+	Token      string
+	Debug      bool
+	IppavelnID int64
 }
 
 type serverConfig struct {
