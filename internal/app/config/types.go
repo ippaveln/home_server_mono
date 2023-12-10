@@ -6,6 +6,8 @@ type Config struct {
 	Debug bool
 
 	Server serverConfig
+
+	HA ha
 }
 
 type botConfig struct {
@@ -23,4 +25,9 @@ type ports struct {
 	Http    int64
 	Grpc    int64
 	Swagger int64
+}
+
+type ha struct {
+	Token string
+	Host  string
 }

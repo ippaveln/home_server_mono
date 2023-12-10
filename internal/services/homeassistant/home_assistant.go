@@ -18,8 +18,8 @@ import (
 
 func (ha *HomeAssistantClient) Run(config *config.Config, conn *connector.Connector, log *slog.Logger, wg *sync.WaitGroup) {
 	ha.port = 8123
-	ha.host = "192.168.0.99"
-	ha.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2MzA0MzE3MDJiNmY0ZjI5YTU0MzJhZTQyNzZmYTFiZSIsImlhdCI6MTY5ODU4MTEwMiwiZXhwIjoyMDEzOTQxMTAyfQ.9E6chjLPCwbpBrzFXIuCB_RtFCCy7XII8f3WxrQpVxU"
+	ha.host = config.HA.Host
+	ha.token = config.HA.Token
 	ha.client = http.Client{Timeout: 6 * time.Second}
 
 	conn.GetStatusHa = ha.GetStatus

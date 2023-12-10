@@ -27,8 +27,14 @@ func parseEnv() Config {
 	parseCommon(&res)
 	parseTgBot(&res)
 	parseServer(&res)
+	parseHA(&res)
 
 	return res
+}
+
+func parseHA(config *Config) {
+	config.HA.Token = os.Getenv("HA_TOKEN")
+	config.HA.Host = os.Getenv("HA_HOST")
 }
 
 func parseCommon(config *Config) {
