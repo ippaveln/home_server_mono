@@ -76,7 +76,7 @@ func (bot *TgBot) Status() service.Status {
 }
 
 func (bot *TgBot) startHandlers() {
-	bot.bot.Handle("/HA", func(ctx tele.Context) error {
+	bot.bot.Handle("/ha", func(ctx tele.Context) error {
 		resp, err := bot.connector.GetStatusHa()
 		if err != nil || resp.StatusCode != http.StatusOK {
 			return ctx.Reply(strconv.Itoa(int(ctx.Sender().ID)))
@@ -97,7 +97,7 @@ func (bot *TgBot) startHandlers() {
 		return ctx.Reply(ctx.Text())
 	})
 
-	bot.bot.Handle("/HA_TTS", func(c tele.Context) error {
+	bot.bot.Handle("/ha_tts", func(c tele.Context) error {
 		payload := c.Message().Payload
 		if payload == "" {
 			return errors.New("empty payload")
@@ -109,7 +109,7 @@ func (bot *TgBot) startHandlers() {
 		return c.Reply("ok")
 	})
 
-	bot.bot.Handle("/HA_cmd", func(c tele.Context) error {
+	bot.bot.Handle("/ha_cmd", func(c tele.Context) error {
 		payload := c.Message().Payload
 		if payload == "" {
 			return errors.New("empty payload")
